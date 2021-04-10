@@ -1,0 +1,66 @@
+<app-nav-all></app-nav-all>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<div class="all">
+    <div class="Header">
+       
+    </div>
+    <div class="content">
+    
+ <h1>EVENTO DESTACADO DEL DIA</h1>     
+    
+  
+</div> 
+<div>
+  <img src="https://www.poli.edu.co/sites/default/files/logos/logo-poli-politecnico-grancolombiano2018.png" class="logo">  
+</div>
+    <div class="image" id="destacado"  *ngFor= 'let Event of Events | paginate: { itemsPerPage: 1, currentPage: 1 }' >
+            <app-event  [Event]="Event" ></app-event>
+     </div>
+    
+  <p> </p> 
+  <div style="text-align:center">
+  <pagination-controls (pageChange)="page = $event" maxSize="100"
+  autoHide="true"
+  responsive="true"
+  previousLabel="Anterior"
+  nextLabel="Siguiente"
+  ></pagination-controls>
+  </div>
+  <p> </p>
+    
+<div class="grid">
+        <div class="image" *ngFor= 'let Event of Events | paginate: { itemsPerPage: pageSize, currentPage: page }'>
+            <app-event  [Event]="Event"></app-event>
+          
+        </div>
+    </div>
+    <div style="text-align:center">
+    <pagination-controls (pageChange)="page = $event" maxSize="100"
+                      autoHide="true"
+                      responsive="true"
+                      previousLabel="Anterior"
+                      nextLabel="Siguiente"
+                      ></pagination-controls>
+                      <div class="mt-3">
+
+                      Eventos por pagina:
+                      <select (change)="handlePageSizeChange($event)">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                          {{ size }}
+                        </option>
+                      </select>
+                    </div>
+    </div>
+    <br>
+    <div class="footer">
+        <h3>Sobre nosotros</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Unde minus pariatur eveniet amet repellendus consequatur
+             maiores deleniti error iure necessitatibus exercitationem doloremque illum repudiandae,
+             suscipit debitis enim quae? Minus.
+      </p>
+    </div>
+</div>
+ 
