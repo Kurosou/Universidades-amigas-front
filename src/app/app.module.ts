@@ -13,6 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 //Import http service
 import { HttpClientModule } from '@angular/common/http';
 
@@ -42,7 +44,8 @@ import { NavAllComponent } from './home/nav-all/nav-all.component';
     HttpClientModule,
     CardModule,
     ButtonModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatToolbarModule
 
   ],
   providers: [],

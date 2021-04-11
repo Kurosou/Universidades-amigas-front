@@ -4,7 +4,7 @@ import { Event } from '../models/event.model';
 import { EventInfoService } from '../service/event-info.service';
 
 @Component({
-  selector: 'app-picture-list',
+  selector: 'app-home',
   templateUrl: './home.Component.html',
   styleUrls: ['./home.Component.css']
 })
@@ -14,17 +14,23 @@ export class homeComponent implements OnInit {
   public page: number;
   pageSize = 8;
   pageSizes = [8, 16, 32];
- 
-
+  public category: String;
+  
   Events: Array<Event>;
+
+  Destacados: Array<Event>;
+ 
+ 
 
   constructor(private eventInfoService: EventInfoService) {
     this.Events = new Array<Event>();
+    
   }
   ngOnInit(): void {
     this.fillEventos();
+    this.fillDestacado();
+    
   }
-
 
   fillEventos() {
     this.eventInfoService.getEvents().subscribe(event => {
@@ -32,8 +38,23 @@ export class homeComponent implements OnInit {
       console.log(this.Events);
     })
   }
+  fillDestacado(){  
+    this.eventInfoService.getEvents().subscribe(event => {
+    this.Destacados = event;
+    console.log(this.Destacados);
+  })
+  }
   handlePageSizeChange(Events): void {
-  this.pageSize = Events.value;
+  this.pageSize = Events.target.value;
   this.page = 1;
-}
+  }
+  filtrar(){
+    if (this.category != "" ) {
+      this.Events=this.Events.filter(res =>{
+      return res.author.toLocaleLowerCase().match(this.category.toLocaleLowerCase());
+    });
+    }else if (this.category ==""){
+      this.ngOnInit();
+    }
+  }
 }

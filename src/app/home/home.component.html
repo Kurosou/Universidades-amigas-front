@@ -15,10 +15,15 @@
 <div>
   <img src="https://www.poli.edu.co/sites/default/files/logos/logo-poli-politecnico-grancolombiano2018.png" class="logo">  
 </div>
-    <div class="image" id="destacado"  *ngFor= 'let Event of Events | paginate: { itemsPerPage: 1, currentPage: 1 }' >
-            <app-event  [Event]="Event" ></app-event>
+    <div class="image" id="destacado 'let Event of Destacados | paginate: { itemsPerPage: 1, currentPage: 1 }'" >
+            <app-event [Event]="Destacados[0]" ></app-event> 
      </div>
-    
+<div style="text-align:center">
+     <mat-form-field class="example-full-width" style="text-align:center">
+      <mat-label>Filter by category</mat-label>
+      <input matInput placeholder="category" type="text" #myInput [(ngModel)] ="category" (input)="filtrar()">
+    </mat-form-field>
+  </div>
   <p> </p> 
   <div style="text-align:center">
   <pagination-controls (pageChange)="page = $event" maxSize="100"
@@ -28,7 +33,9 @@
   nextLabel="Siguiente"
   ></pagination-controls>
   </div>
+  <p>.</p>
   <p> </p>
+  <p>.</p>
     
 <div class="grid">
         <div class="image" *ngFor= 'let Event of Events | paginate: { itemsPerPage: pageSize, currentPage: page }'>
