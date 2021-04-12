@@ -15,6 +15,8 @@ export class homeComponent implements OnInit {
   pageSize = 8;
   pageSizes = [8, 16, 32];
   public category: String;
+  public ID: number;
+  
   
   Events: Array<Event>;
 
@@ -48,10 +50,19 @@ export class homeComponent implements OnInit {
   this.pageSize = Events.target.value;
   this.page = 1;
   }
-  filtrar(){
+  filtrarPorCategoria(){
     if (this.category != "" ) {
       this.Events=this.Events.filter(res =>{
       return res.author.toLocaleLowerCase().match(this.category.toLocaleLowerCase());
+    });
+    }else if (this.category ==""){
+      this.ngOnInit();
+    }
+  }
+  filtrarPorID(){
+    if (this.ID != null ) {
+      this.Events=this.Events.filter(res =>{
+      return res.id==this.ID;
     });
     }else if (this.category ==""){
       this.ngOnInit();

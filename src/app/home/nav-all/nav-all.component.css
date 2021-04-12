@@ -3,23 +3,21 @@
     color: #000000;
 }
 .navbar{
-    box-shadow: -6px 6px 6px -3px black;
-    background-color:  #14c4ff;
+    box-shadow: -6px 10px 60px 10px #1a416b;
+    background-color:  #337dcc;
 
 }
 .nav-link{
     color:  black;
     font: menu;
     font-size: 220%;
-    
-    font-family: 'Freestyle Script';
+    font-family: 'Cambria';
 }
 .navbar-brand{
     color:  #000000;
-
     font: menu;
     font-size: 300%;
-    font-family: 'Freestyle Script';
+    font-family: 'Cambria';
 }
 .navbarNavDropdown{
     background-color:  #ffffff;
