@@ -1,8 +1,8 @@
 <div class="slide">
-    <p-card header="TITULO DEL EVENTO" subheader="Soy una descripcion Lorem ipsum dolor sit amet consectetur adipisicing elit. " [style]="{width: '360px'}" styleClass="p-card-shadow">
+    <p-card header={{Event.nombreEvento}} subheader={{Event.detalleEvento}} [style]="{width: '360px'}" styleClass="p-card-shadow">
         <ng-template pTemplate="header">
-            <p id="categoria" color=blue> <"categoria 1">  <"categoria 2"> </p>
-            <img alt="Card" src={{Event.download_url}} height="250" width="250" >
+            <p id="categoria" color=blue> {{Event.categoriaEvento}} </p>
+            <img alt="Card" src=https://www.poli.edu.co/sites/default/files/logos/logo-poli-politecnico-grancolombiano2018.png height="250" width="250" >
         </ng-template>
         <ng-template pTemplate="footer">
             <p-button class="boton" (click)="openUrl()" label="Ver detalles de el evento" ></p-button>

@@ -9,12 +9,14 @@ import { Event } from '../models/event.model';
 })
 export class EventInfoService {
 
+  private url='http:Localhost:8080/ap1/v1/Carteles'
+
   constructor(private http: HttpClient) { }
 
 
   getEvents (): Observable<Event []> {
 
-    return this.http.get<Event[]>(`${enviroment.urlApi}`);
+    return this.http.get<Event[]>(`${this.url}`);
 
   }
 

@@ -53,7 +53,7 @@ export class homeComponent implements OnInit {
   filtrarPorCategoria(){
     if (this.category != "" ) {
       this.Events=this.Events.filter(res =>{
-      return res.author.toLocaleLowerCase().match(this.category.toLocaleLowerCase());
+      return res.categoriaEvento.toLocaleLowerCase().match(this.category.toLocaleLowerCase());
     });
     }else if (this.category ==""){
       this.ngOnInit();
@@ -62,7 +62,7 @@ export class homeComponent implements OnInit {
   filtrarPorID(){
     if (this.ID != null ) {
       this.Events=this.Events.filter(res =>{
-      return res.id==this.ID;
+      return res._id==this.ID;
     });
     }else if (this.category ==""){
       this.ngOnInit();

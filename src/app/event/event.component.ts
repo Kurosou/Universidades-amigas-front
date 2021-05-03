@@ -17,7 +17,7 @@ export class EventComponent implements OnInit {
   }
 
   openUrl () {
-    window.open(`${this.Event.download_url}`,'_blank');
+    window.open(`https://docs.google.com/forms/d/14n1LfnWB_-h4_WkjDRxcGB005fRO9uYSUGHHs0oiBM0/prefill`,'_blank');
   }
 
 }
