@@ -9,7 +9,7 @@ import { Event } from '../models/event.model';
 })
 export class EventInfoService {
 
-  private url='http:Localhost:8080/ap1/v1/Carteles'
+  private url='http://Localhost:8080/api/v1/Carteles'  
 
   constructor(private http: HttpClient) { }
 
